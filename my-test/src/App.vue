@@ -38,8 +38,8 @@ export default {
 <style>
 body{
 /*  background-color: pink;*/
-margin: 0;
-padding: 0;
+margin: 50;
+padding: 50;
  /* background-color: #2d3a4b; */
 }
 li p{
