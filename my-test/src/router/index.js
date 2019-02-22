@@ -30,7 +30,10 @@ export const constantRouterMap=[
         {
           path:'a',
           component:()=>import( '@/components/a'),
-        
+        },
+        {
+          path:'store',
+          component:()=>import('@/components/storeTest/CityList'),
         }
 
       ]
@@ -39,12 +42,12 @@ export const constantRouterMap=[
         path:'/am',
         name:am,
         component:am,
-
-      }
+      },
+   
   ];
 
 export default new Router({
-  mode: 'history', // require service support
+  // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
 })

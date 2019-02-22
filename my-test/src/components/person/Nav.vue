@@ -14,7 +14,12 @@
     <h3>scss</h3>
     <router-link to="/settings/emails">emils</router-link>
     <router-link to="/settings/profile">profile</router-link>
-    <router-link to="/settings/a">a</router-link>
+    <router-link to="/settings/a">todo</router-link>
+    <div>
+      <h3>{{city}}</h3>
+    <router-link  tag='button' to="/settings/store" >获取城市列表</router-link>
+    </div>
+
   </div>
 </template>
 <script>
@@ -54,7 +59,13 @@ export default {
     '$route'(to, from) {
       // console.log(to,from);
     }
-  }
+  },
+  computed: {
+    city(){
+      //通过vuex的getters方法来获取state里面的数据
+      return this.$store.getters.getCityFn;
+    }
+  },
 }
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
@@ -64,9 +75,10 @@ export default {
   $font-weight-normal: normal;
   $font-weight-bold: bold;
   $apixel: 1px;
+  $coolor:rebeccapurple;
   div{
     h3{
-   color: rebeccapurple;
+   color: $coolor;
     }
   }
 

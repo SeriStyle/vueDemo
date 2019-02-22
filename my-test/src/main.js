@@ -6,7 +6,7 @@ import router from './router';
 // import {Button,Select,Option ,Form} from 'element-ui'; 按需加载
 import i18n from './lang/i18n';
 import './icons' // icon
-
+import store from './store/store.js';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
@@ -21,6 +21,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store,
   router,
   i18n,
   // components: { App },
