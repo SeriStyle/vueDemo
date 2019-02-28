@@ -1,7 +1,7 @@
 <template>
   <div class="us__nav">
     
-    <template>
+ 
   <el-select v-model="value" placeholder="请选择"  >
     <el-option
       v-for="item in options"
@@ -10,23 +10,29 @@
       :value="item.value"  @click.native="btn(item)">
     </el-option>
   </el-select>
-</template>
+  <inputFocus/>
     <h3>scss</h3>
     <router-link to="/settings/emails">emils</router-link>
     <router-link to="/settings/profile">profile</router-link>
     <router-link to="/settings/a">todo</router-link>
     <div>
       <h3>{{city}}</h3>
+      <a :href="www" target="_blank">aaaaaaaa</a>
     <router-link  tag='button' to="/settings/store" >获取城市列表</router-link>
     </div>
 
   </div>
 </template>
 <script>
+import inputFocus from "@/components/inputFocus/inputFocus"
 export default {
   name: 'Nav',
+  components:{
+    inputFocus,
+  },
   data() {
     return {
+      www:"https://panjiachen.github.io/vue-element-admin-site/", //去调Https：// 页面前面会变成本地，跳转意想不到的结果
         options: [{
           value: '选项1',
           label: '黄金糕'
@@ -47,7 +53,7 @@ export default {
       }
   },
   created() {
-
+       console.log(this.options);
   },
   methods:{
     btn(item){
@@ -56,9 +62,9 @@ export default {
   },
 
   watch: {
-    '$route'(to, from) {
-      // console.log(to,from);
-    }
+    // '$route'(to, from) {
+    // this.$router.go(0);
+    // }
   },
   computed: {
     city(){

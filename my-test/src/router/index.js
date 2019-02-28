@@ -13,6 +13,7 @@ Vue.use(Router)
 export const constantRouterMap=[
       { path:'/settings',
         component:Settings,
+        meta:{title:"好饿"},
         children:[ //子路由
         {
           path:'emails',

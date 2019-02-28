@@ -11,13 +11,15 @@
 		name:'EmailSubscriptions',
 		data(){
 			return {
-       eleValu:4,
+        eleValu:4,
 			}
 		},
 		methods: {
 			eleByValu(){
+				this.$store.dispatch('setAVal','你好');
+				this.$router.push('/settings/profile');
 				console.log(this.eleValu);
-      Bus.$emit('val',this.eleValu)
+      // Bus.$emit('val',this.eleValu) 使用这个bus来实现不同组件之间通行，失败；另外一个组件是profile
 			},
 		},
 	}

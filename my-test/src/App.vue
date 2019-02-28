@@ -12,6 +12,8 @@
    <!-- <router-link to="/">page1</router-link> 
       <router-link to="/page2">page2</router-link>  -->
     <!-- <Settings/> -->
+
+
   </div>
 </template>
 <script>
@@ -24,14 +26,45 @@ export default {
   data(){
     return{
       path:"",
+      input:"",
     }
   },
+
   beforeRouteEnter(to, from, next) {
      console.log(to,from);
     // getPost(to.params.id, (err, post) => {
     //   next(vm => vm.setData(err, post))
     // })
   },
+  beforeCreate() {
+    debugger;
+    console.log('Test beforeCreate');
+  },
+  created() {
+    debugger;
+    console.log('Test created');
+  },
+  mounted() {
+    debugger;
+    // this.$refs.input.autofocus=true;
+    console.log('Test mounted');
+  },
+  beforeDestroy() {
+    debugger;
+    console.log('Test beforeDestroy');
+  },
+  destroyed() {
+    debugger;
+    console.log('Test destroyed');
+  },
+  beforeUpdate() {
+    debugger;
+    console.log('Test beforeUpdate');
+  },
+  updated() {
+    debugger;
+    console.log('Test updated');
+  }
 }
 </script>
 

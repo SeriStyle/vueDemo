@@ -20,8 +20,15 @@ export default{
        // 调用vuex的ations设置城市的值
        this.$store.dispatch('setCityName',this.cityArr[index]);
        //返回某个页面
+       //this.$router.go(0)
+     //  this.$router.go(-1)
        this.$router.push("/settings");
     }
+  },
+  watch: {
+    // '$route'(to,from){
+    //   this.$router.go(0);
+    // }
   },
 }
 </script>

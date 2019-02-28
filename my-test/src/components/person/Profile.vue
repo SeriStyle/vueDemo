@@ -5,7 +5,7 @@
     </ul>
     <div class="loading-wrapper"></div>
     <input type="button" value="点击触发" @click='getData'>
-    <span>{{name}}</span>
+    <span>{{getval}}</span>
   </div>
 </template>
 <script>
@@ -15,20 +15,27 @@
     data() {
       return {
         data: [1,2,3,4,5,6],
-        name:0,
+        eleValu:0,
       }
     },
     created() {
       // this.loadData()
+      console.log(this.data);
     },
     mounted(){
       var vm=this
       //用 $on 事件接受参数
-      Bus.$on('val',(data)=>{
-        vm.name=data
-        console.log(vm.name)
-      })
+      // Bus.$on('val',(data)=>{ 
+      //   vm.name=data
+      //   console.log(vm.name)
+      // })
      
+    },
+    computed: {
+      getval(){
+        //通过vuex的getters方法来获取state里面的数据
+        return this.$store.getters.getAVal
+      }
     },
     methods: {
       loadData() {
