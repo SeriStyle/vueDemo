@@ -5,12 +5,17 @@ const moduleA={
     // state
     state:{
       city:"城市名",
+      todoprams:"修改值",
+
     },
     // getters
     getters:{
       getCityFn(state){
         return state.city;
-      }
+      },
+      getToDo(state){
+        return state.todoprams;
+      },
     },
     actions:{
       // 设置城市信息

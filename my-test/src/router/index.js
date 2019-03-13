@@ -7,6 +7,7 @@ import Settings from '@/components/person/Settings'
 import EmailSubscriptions from '@/components/person/EmailSubscriptions'
 import Profile from '@/components/person/Profile'
 import ProfilePreview from '@/components/person/ProfilePreview'
+import Resume from '@/components/resume/Resume'
 
 Vue.use(Router)
    // component: () => import('@/views/login/index'),
@@ -44,6 +45,15 @@ export const constantRouterMap=[
         name:am,
         component:am,
       },
+      {
+        path:'/resume',
+        name:"resume", //name?
+        component:Resume,
+      },
+      {
+        path:'/wechat',
+        component:()=>import('@/components/resume/wechat/WeChat'),
+      }
    
   ];
 

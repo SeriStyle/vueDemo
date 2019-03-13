@@ -1,0 +1,185 @@
+@import url(https://fonts.googleapis.com/css?family=Exo+2);
+
+.logo {
+  margin: 0 auto 4rem;
+  width: 12.5rem;
+  height: 12.5rem;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+@font-face {
+  font-weight: 400;
+  font-style: normal;
+  font-family: Againts;
+  src: url(../../static/media/againts.08c004a0.eot) format("eot"), url(../../static/media/againts.c01d8d3b.woff) format("woff"), url(../../static/media/againts.7c801b5d.ttf) format("truetype"), url(../../static/media/againts.b70d4fe7.svg#Againts) format("svg")
+}
+
+.logo,
+.slogan,
+.title {
+  -webkit-animation: fadeIn 2s both;
+  animation: fadeIn 2s both
+}
+
+.slogan,
+.title {
+  font-family: Againts
+}
+
+.title {
+  margin: 0 0 1rem;
+  color: #fff;
+  text-shadow: 0 0 .5rem rgba(0, 0, 0, .8);
+  font-size: 5rem;
+  -webkit-animation-delay: .25s;
+  animation-delay: .25s
+}
+
+.slogan {
+  margin: 0 0 4rem;
+  color: #eee;
+  text-shadow: 0 0 .5rem rgba(0, 0, 0, .6);
+  font-size: 2rem;
+  -webkit-animation-delay: .5s;
+  animation-delay: .5s
+}
+
+.navigation {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  -webkit-animation: fadeIn 2s .75s both;
+  animation: fadeIn 2s .75s both
+}
+
+.navigation li+li:before {
+  margin: .5rem;
+  color: #aaa;
+  content: "\B7"
+}
+
+.navigation a {
+  color: #99e9f2;
+  text-decoration: none;
+  font-family: Exo\ 2, sans-serif;
+  -webkit-transition: color .5s, text-shadow .5s;
+  transition: color .5s, text-shadow .5s
+}
+
+.navigation a:hover {
+  color: #22b8cf
+}
+
+.navigation a:focus,
+.navigation a:hover {
+  text-shadow: 0 0 .5rem hsla(0, 0%, 100%, .5)
+}
+
+.navigation a:focus {
+  outline: 0;
+  color: #3bc9db
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden;
+  background-size: 0
+}
+
+.background:after,
+.background:before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: ""
+}
+
+.background:before {
+  background: no-repeat 50%/cover;
+  background-image: inherit;
+  -webkit-transition-delay: .5s;
+  transition-delay: .5s;
+  -webkit-transition-duration: 2.5s;
+  transition-duration: 2.5s;
+  -webkit-transition-property: opacity, -webkit-filter, -webkit-transform;
+  transition-property: opacity, -webkit-filter, -webkit-transform;
+  transition-property: opacity, filter, transform;
+  transition-property: opacity, filter, transform, -webkit-filter, -webkit-transform
+}
+
+.background.loading:before {
+  opacity: 0;
+  -webkit-filter: blur(5rem);
+  filter: blur(5rem);
+  -webkit-transform: scale(1.25);
+  transform: scale(1.25)
+}
+
+.background:after {
+  background: -webkit-linear-gradient(transparent, rgba(0, 0, 0, .4) 60%, rgba(0, 0, 0, .9)), 0/1px url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path d="M0 0h1v1H0zM1 1h1v1H1z"/></svg>');
+  background: linear-gradient(transparent, rgba(0, 0, 0, .4) 60%, rgba(0, 0, 0, .9)), 0/1px url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path d="M0 0h1v1H0zM1 1h1v1H1z"/></svg>')
+}
+
+body,
+html {
+  height: 100%
+}
+
+body {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  margin: 0;
+  background: #000;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(100%) scale(.4);
+    transform: translateY(100%) scale(.4)
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(100%) scale(.4);
+    transform: translateY(100%) scale(.4)
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none
+  }
+}
+
+/*# sourceMappingURL=main.04c6bd7d.chunk.css.map */

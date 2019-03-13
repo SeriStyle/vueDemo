@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" ref="app">
       <!-- <ul>
       <li>
       <router-link  :to="{name:'HelloWorld',params:{id:12345678}}"  tag='p'>首页</router-link>  
@@ -12,7 +12,7 @@
    <!-- <router-link to="/">page1</router-link> 
       <router-link to="/page2">page2</router-link>  -->
     <!-- <Settings/> -->
-
+   <!-- <input type="text" v-on:input="handInput($event)">  -->
 
   </div>
 </template>
@@ -27,6 +27,7 @@ export default {
     return{
       path:"",
       input:"",
+      app:null,
     }
   },
 
@@ -49,6 +50,11 @@ export default {
     // this.$refs.input.autofocus=true;
     console.log('Test mounted');
   },
+  methods: {
+    handInput(e){
+        console.log(e.target.value);
+    }
+  },
   beforeDestroy() {
     debugger;
     console.log('Test beforeDestroy');
@@ -56,6 +62,8 @@ export default {
   destroyed() {
     debugger;
     console.log('Test destroyed');
+    // this.$refs.app.innerHTML='';
+
   },
   beforeUpdate() {
     debugger;
@@ -71,8 +79,8 @@ export default {
 <style>
 body{
 /*  background-color: pink;*/
-margin: 50;
-padding: 50;
+margin: 0;
+padding: 0;
  /* background-color: #2d3a4b; */
 }
 li p{

@@ -4,6 +4,7 @@
       v-bind:proptext="aaaaaa"
       >
       </BaseInputText>
+     
   </div>
 </template>
 <script>
