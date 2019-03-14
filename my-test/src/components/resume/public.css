@@ -1,0 +1,38 @@
+@font-face {
+  font-weight: normal;
+  font-style: normal;
+  font-family: Againts;
+  src: url('../../assets/font/againts.eot?') format('eot'), url('../../assets/font/againts.woff') format('woff'), url('../../assets/font/againts.ttf') format('truetype'), url('../../assets/font/againts.svg#Againts') format('svg');
+}
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(100%) scale(0.4);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  ul li {
+    list-style: none;
+    display: inline;
+    padding: 20px;
+  }
+  a{
+    color: #99e9f2;
+    text-decoration: none;
+    font-family: 'Exo 2', sans-serif;
+
+  }
+  a:hover {
+    color: #22b8cf;
+  text-shadow: 0 0 0.5rem rgba(255,255,255,0.5)
+  }
+  
+  a:focus{
+    outline: 0;
+    color: #3bc9db;
+    text-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.5);
+  }
+ 
