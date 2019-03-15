@@ -1,0 +1,27 @@
+{
+  "clock": {
+      "rule": [
+        {
+        "id":1,
+        "title":"春逝",
+        "content":" When we two parted  In silence and tears, Half broken-hearted To serve for years",
+        "categories":["vue","Node","React"],
+        "author":"拜伦"
+        },
+        {
+          "id":2,
+          "title":"Googel",
+          "content":"  哈哈哈哈哈哈哈哈哈 ",
+          "categories":["vue","Node","React"],
+          "author":"wer"
+        },
+        {
+          "id":3,
+          "title":"搜狗浏览器",
+          "content":"  哈哈哈哈哈哈哈哈哈 ",
+          "categories":["vue","Node","React"],
+          "author":"syu"
+        }
+      ]
+  }
+}

@@ -2,7 +2,7 @@
   <div>
       <label for="all"> <input type="checkbox" id="all">全选</label>
     <div>
-   <label for=""></label>
+      <label for=""></label>
     </div>
   </div>
 </template>

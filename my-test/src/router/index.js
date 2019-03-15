@@ -48,7 +48,7 @@ export const constantRouterMap = [{
     component: am,
   },
   {
-    path: '/resume',
+    path: '/',
     name: "resume", //name?
     component: Resume,
   },
