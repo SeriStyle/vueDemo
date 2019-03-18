@@ -1,7 +1,8 @@
 <template>
   <div class="list">
       <Nav-Header/>
-      <Show-Artical/>
+      <!-- <Show-Artical/> -->
+      <router-view></router-view>
   </div>
 
 </template>

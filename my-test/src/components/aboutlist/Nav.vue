@@ -2,9 +2,17 @@
     <div class="list">
       <div class="listcontent">
         <ul>
-          <li v-for="(item,index) in navarr" :key="index">
-            {{item}}
+          <router-link to='/aboutlist/showArtical'>
+          <li>
+            {{navarr[0]}}
           </li>
+          </router-link>
+          <router-link to='/aboutlist/pizza'>
+          <li>
+            {{navarr[1]}}
+          </li> 
+          </router-link>
+         
         </ul>
       </div>
   
@@ -34,6 +42,7 @@
       padding: 0;
       text-align: center;
       font-weight: 400;
+     /* position: fixed; */
     }
     ul li{
       display: inline-block;

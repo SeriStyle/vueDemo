@@ -1,20 +1,29 @@
 <template>
+<div>
+
   <div class="content">
     <h1>Reading Time</h1>
     <input type="text" placeholder="搜索" v-model="serach">
     <div class="singleArtic" v-for="(item,index) in getBlogs" :key="index">
-      <!-- <router-link to=''> -->
+      <router-link :to=" '/detail/' + item.id">
           <h2 v-rainbow>{{item.title}}</h2>
-      <!-- </router-link> -->
+      </router-link>
 
       <article>
       {{item.content}}
       </article>
     </div>
   </div>
+
+</div>
+
 </template>
 <script>
+  import Nav from '@/components/aboutlist/Nav'
   export default{
+        components:{
+      NavHeader:Nav,
+       },
     data() {
       return {
         blogs:[],
@@ -36,10 +45,9 @@
       }
     },
     created() {
-      console.log(Math.random());
-       this.axios.get('api/data').then((res)=>{
-         console.log(res);
+       this.axios.get('http://localhost:8081/api/data').then((res)=>{ //请求本地接口
         let blogarr=res.data.data.rule;
+        console.log(blogarr);
         this.blogs=blogarr;
        })
     },
@@ -68,5 +76,8 @@
  }
  article,h2{
    padding: 10px;
+ }
+ a{
+   text-decoration: none;
  }
 </style>
