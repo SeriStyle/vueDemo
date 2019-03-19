@@ -10,7 +10,7 @@
           WeChat
         </router-link>
       </li>
-      <li> <router-link to='/aboutlist' exact>
+      <li> <router-link to='/aboutlist/showArtical' exact>
          AboutList </router-link></li>
       <li> 
         <a href="https://vuex.vuejs.org/zh/" target="_blank">

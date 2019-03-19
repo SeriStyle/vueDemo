@@ -2,7 +2,9 @@
   <div class="list">
       <Nav-Header/>
       <!-- <Show-Artical/> -->
-     
+
+      <router-view></router-view>
+
   </div>
 
 </template>
@@ -14,7 +16,7 @@
     components:{
       ShowArtical,
       NavHeader:Nav,
-      PizzaAdmin,
+     
        },
      data() {
        return {

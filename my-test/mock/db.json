@@ -3,22 +3,36 @@
       "rule": [
         {
         "id":1,
-        "title":"春逝",
-        "content":" When we two parted  In silence and tears, Half broken-hearted To serve for years",
+        "title":"伏尔泰",
+        "content":" 外表的美只能取悦于人的眼睛，而内主的美却能感染人的灵魂",
         "categories":["vue","Node","React"],
         "author":"拜伦"
         },
         {
           "id":2,
-          "title":"Googel",
-          "content":"  哈哈哈哈哈哈哈哈哈 ",
+          "title":"泰戈尔",
+          "content":"  时间是变化的财富。时钟模仿它，却只有变化而无财富。 ",
           "categories":["vue","Node","React"],
           "author":"wer"
         },
         {
           "id":3,
-          "title":"搜狗浏览器",
-          "content":"  哈哈哈哈哈哈哈哈哈 ",
+          "title":"海明威",
+          "content":" 生活总是让我们遍体鳞伤，但到后来，那些受伤的地方一定会变成我们最强壮的地方。 ",
+          "categories":["vue","Node","React"],
+          "author":"syu"
+        },
+        {
+          "id":4,
+          "title":"麦克白",
+          "content":" 黑夜无论多长，白昼总会到来",
+          "categories":["vue","Node","React"],
+          "author":"syu"
+        },
+        {
+          "id":5,
+          "title":"哈姆雷特",
+          "content":" 一个人要是把生活的幸福和目的，只看作吃吃睡睡，他还算是个什么东西？简直不过是一头畜生！",
           "categories":["vue","Node","React"],
           "author":"syu"
         }
