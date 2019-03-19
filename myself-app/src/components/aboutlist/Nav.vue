@@ -7,7 +7,7 @@
             {{navarr[0]}}
           </li>
           </router-link>
-          <router-link to='/aboutlist/pizza'>
+          <router-link to='/aboutlist/kinds'>
           <li>
             {{navarr[1]}}
           </li> 
