@@ -1,0 +1,169 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://unpkg.com/element-ui@1.4/lib/theme-default/index.css">
+  <title>Document</title>
+</head>
+<body>
+<div class="el-table el-table--fit el-table--border el-table--enable-row-hover el-table--enable-row-transition"
+     style="width: 100%;">
+  <div class="el-table__body-wrapper">
+    <table cellspacing="0" cellpadding="0" border="0" class="el-table__body" style="width: 100%;">
+      <thead>
+        <tr id="head_tr">
+        </tr>
+      </thead>
+      <tbody id="tbody">
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+<script>
+  function CreateTable() {
+    var _this = this;
+    this.data = [
+      {
+        date: '2016-05-02',
+        name: '选项1',
+        address: '上海市普陀区金沙江路 1518 弄',
+        adsrfaesa: 'AGAGASDFDSAFSDA',
+        zipCode: '1111',
+        age: '5'
+      }, {
+        date: '2016-05-04',
+        name: '选项2',
+        address: '上海市普陀区金沙江路 1517 弄',
+        adsrfaesa: 'ASDFADFADGASDFSDA',
+        DFFHGKJDFFJKSDJF: 'FSDFASDDSF',
+        zipCode: '2222',
+        age: '100'
+      }, {
+        date: '2016-05-01',
+        name: '选项3',
+        address: '上海市普陀区金沙江路 1519 弄',
+        adsrfaesa: 'SDFSDAFERWEFGFSDSDAFSDSDAFSD',
+        DFFHGKJDFFJKSDJF: 'SADFDDSAFSDAFASDASFDSFD',
+        zipCode: '3333',
+        age: '20'
+      }, {
+        date: '2016-05-03',
+        name: '选项4',
+        address: '上海市普陀区金沙江路 1516 弄',
+        adsrfaesa: 'FSADF',
+        DFFHGKJDFFJKSDJF: 'SADFDASSDFSDAFSDFFDSFD',
+        zipCode: '4444',
+        age: '10'
+      }];
+    this._HEAD_TR_ = document.getElementById('head_tr');
+    this._TBODY_ = document.getElementById('tbody');
+
+    // 表格的列
+    this.column = [
+      { label: '日期', prop: 'date', render: function(params) {
+        return _this.getRenderInput(params);
+      } },
+      { label: '姓名', prop: 'name', dataName: 'option', defaultProps: { label: 'label', nodeKey: 'value' }, render: function(params) {
+        return _this.getRenderSelect(params);
+      } },
+      { label: '地址', prop: 'address' },
+      { label: '邮编', prop: 'zipCode' },
+      { label: '年龄', prop: 'age', dataName: 'ageList', defaultProps: { label: 'text', nodeKey: 'val' }, render: function (params) {
+        return _this.getRenderSelect(params);
+      } },
+    ];
+    this.option = [
+      {
+      value: '选项1',
+      label: '黄金糕'
+    }, {
+      value: '选项2',
+      label: '双皮奶'
+    }, {
+      value: '选项3',
+      label: '蚵仔煎'
+    }, {
+      value: '选项4',
+      label: '龙须面'
+    }, {
+      value: '选项5',
+      label: '北京烤鸭'
+    }];
+    this.ageList = [
+      { text: '5岁', val: '5' },
+      { text: '10岁', val: '10' },
+      { text: '20岁', val: '20' },
+      { text: '10岁', val: '100' }
+    ];
+    this.init();
+    this.create();
+  }
+  CreateTable.prototype.init = function() {
+    this.getRenderInput = function(params) {
+      var row = params.row;
+      var column = params.column;
+      var INPUT = document.createElement('input');
+      INPUT.value = row[column.prop];
+      INPUT.addEventListener('input', function(e) {
+        row[column.prop] = e.target.value;
+      }, false);
+      return INPUT;
+    };
+    this.getRenderSelect = function(params) {
+      var row = params.row;
+      var column = params.column;
+      var defaultProps = column.defaultProps;
+      var dataName = column.dataName || '';
+      var SELECT = document.createElement('select');
+      SELECT.setAttribute('selected', row[column.prop]);
+      this[dataName].forEach(function(op) {
+        var OPTION = document.createElement('option');
+        OPTION.value = op[defaultProps.nodeKey];
+        OPTION.label = op[defaultProps.label];
+        if (op[defaultProps.nodeKey] == row[column.prop]) {
+          OPTION.selected = true;
+        }
+        SELECT.appendChild(OPTION);
+      });
+      SELECT.addEventListener('change', function(e) {
+        row[column.prop] = e.target.value;
+      });
+      return SELECT;
+    }
+  };
+  CreateTable.prototype.create = function() {
+    var frag = document.createDocumentFragment();
+    this.column.forEach(function(col) {
+      var th = document.createElement('th');
+      th.innerHTML = '<div class="cell">'+ col.label +'</div>'
+      frag.appendChild(th);
+    });
+    this._HEAD_TR_.appendChild(frag);
+
+    this.data.forEach(function(row) {
+      var tr = document.createElement('tr');
+      tr.className = 'el-table__row';
+      this.column.forEach(function(col) {
+        var td = document.createElement('td');
+        var cell = document.createElement('cell');
+        if (col.render instanceof Function) {
+          cell.appendChild(col.render({ row: row, column: col }));
+        } else {
+          cell.innerHTML = row[col.prop];
+        }
+        td.appendChild(cell);
+        tr.appendChild(td);
+      });
+      frag.appendChild(tr);
+    }.bind(this));
+    this._TBODY_.appendChild(frag);
+  }
+  new CreateTable();
+</script>
+</html>
+

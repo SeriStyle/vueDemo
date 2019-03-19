@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./demo.css">
+</head>
+<style>
+.aa{
+  background-color: blueviolet !important;
+  /* margin:0 auto; */
+}
+ .wrapper{
+   border: 1px solid darkolivegreen;
+   width: 500px;
+   height: 500px;
+   margin:0 auto;
+   position: relative;
+ }
+ .content{
+   border: 1px solid darkblue;
+   width: 200px;
+   height: 200px;
+   position: absolute;
+  left: 0;
+  right: 0;
+
+   }
+</style>
+<body>
+  <!-- <div class="aa" >
+  </div> -->
+
+  <div class="wrapper">
+    <div class="content"></div>
+</div>
+  <script>
+    //     let a = 'Hello World!';
+    //     console.log('Inside first function');
+    //     debugger;
+    //     function first(){
+    //       console.log('Inside first function');
+    //       second();
+    //       console.log('Again inside first function');
+    //     }
+
+    //     function second() {
+    //       console.log('Inside second function');
+    //     }
+    //     first();
+    //     console.log('Inside Global Execution Context');
+
+    //   var promise1 = new Promise(function(resolve, reject){
+    //           setTimeout(function() {
+    //             resolve('foo');
+    //           }, 300);
+    //       });
+
+    //     promise1.then(
+    //         function(value) {
+    //         console.log(value);
+    //         // expected output: "foo"
+    //       }
+    //     );
+
+    // console.log(promise1);
+    // // expected output: [object Promise]
+
+    if (!Function.bind) {
+      Function.prototype.bind = function (context) {
+        if (typeof this !== 'function') {
+          throw new Error('调用的对象不是方法');
+        }
+        var _this = this;
+        var result = function () {
+          return _this.apply(this instanceof result ? this : context);
+        }
+        var FN = function () { };
+        FN.prototype = this.prototype;
+        result.prototype = new FN();
+        return result;
+      }
+    }
+
+// Function.prototype.bind = function(context) {
+//       if (typeof this !== 'function') {
+//         throw new Error('调用的对象不是方法');
+//       }
+//       var _this = this;
+//       var args = Array.prototype.slice.call(arguments, 1);
+//       var result = function() {
+//         var bindArgs = [].slice.call(arguments);
+//         return _this.apply(this instanceof result ? this : context, args.concat(bindArgs));
+//       }
+//       var FN = function() {};
+//       FN.prototype = this.prototype;
+//       result.prototype = new FN();
+//       return result;
+// }
+
+    var moduleTest = {
+      x: 81,
+      fn: function () {
+        return this.x;
+      }
+    };
+
+    var a = moduleTest.fn;
+    console.log(a());//指向window，undefined
+
+    var b = a.bind(moduleTest);
+    console.log(b());//改变指向，输出 81
+
+    var module = {
+      x: 42,
+      getX: function () {
+        return this.x;
+      }
+    }
+ 
+    var unboundGetX = module.getX;
+    console.log(unboundGetX()); // The function gets invoked at the global scope
+    // expected output: undefined
+
+    var boundGetX = unboundGetX.bind(module);
+    console.log(boundGetX());
+// expected output: 42
+
+    var jtFn=(a)=>{
+        console.log(a);
+        console.log(this);
+    };
+    jtFn('1');
+    var jtFn2={
+      x:2,
+      fn:(a)=>{
+        console.log(a);
+        console.log(this);
+      },
+    }
+    jtFn2.fn('2')
+// apply call操作
+var array = ['a', 'b'];
+var elements = [0, 1, 2];
+array.push.apply(array, elements);
+console.info(array); // ["a", "b", 0, 1, 2]
+
+
+/* 找出数组中最大/小的数字 */
+var numbers = [5, 6, 2, 3, 7];
+
+/* 应用(apply) Math.min/Math.max 内置函数完成 */
+var max = Math.max.apply(null, numbers); /* 基本等同于 Math.max(numbers[0], ...) 或 Math.max(5, 6, ..) */
+var min = Math.min.apply(null, numbers);
+
+/* 代码对比： 用简单循环完成 */
+max = -Infinity, min = +Infinity;
+
+for (var i = 0; i < numbers.length; i++) {
+  if (numbers[i] > max)
+    max = numbers[i];
+  if (numbers[i] < min) 
+    min = numbers[i];
+}
+//统计出现字符次数，最多的那个字母
+var str = 'asdfssaaasasasasaawwwwrrttttyyyyyuuuuiiii';
+
+var obj={};
+for(let val of str){
+   if(obj[val]){
+    obj[val]++
+   }else{
+     obj[val]=1;
+   }
+}
+console.log(obj);
+let nums=0;
+let zm="";
+for(let i in obj){
+    if(obj[i]>nums){
+      nums=obj[i];
+      zm=i;
+    }
+}
+console.log("出现字母最多"+zm+'次数'+nums);
+//数组去重
+var arr = [0,2,3,4,4,0,2,5,5];
+var obj = {};
+var tmp = [];
+var arr2=[];
+for(let val of arr){
+    if(!obj[val]){
+      obj[val]=1;
+      tmp.push(val);
+    }
+}
+console.log(tmp);
+for(let val of arr){
+   if(arr2.indexOf(val)<0){
+      arr2.push(val);
+   }
+}
+console.log(arr2);
+
+
+// <!--  console.log(element);
+    
+//     console.log(self);
+//     console.log(index);
+//    console.log( self.indexOf(element));
+   
+//    -->
+
+var arr = [2,3,4,4,5,2,3,6];
+var arr2 = arr.filter(function(element,index,self){
+  return self.indexOf(element) === index;
+});
+
+console.log(arr2);
+ 
+let arr = [2,3,4,4,5,2,3,6];
+let  arr2 = arr.filter(function(valu,index,self){
+   console.log(self.indexOf(valu));
+  return self.indexOf(valu) === index;
+});
+
+
+// $.ajax({
+//   url:'',
+//   type:'post',
+//   data:"",
+//   cache:true,
+//   headers:{},
+//   beforeSend:function(){},
+//   success:function(){},
+
+// })
+
+var filterarr=[{aa:'你好'},{aa:'哈哈哈哈h'}];
+var newarr= filterarr.filter(function(ele,index,self){
+    return ele.aa==='你好'
+})
+ console.log(newarr);
+
+
+  </script>
+</body>
+
+</html>
