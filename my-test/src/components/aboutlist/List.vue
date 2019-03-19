@@ -1,17 +1,20 @@
 <template>
   <div class="list">
       <Nav-Header/>
-      <Show-Artical/>
+      <!-- <Show-Artical/> -->
+     
   </div>
 
 </template>
 <script>
   import Nav from '@/components/aboutlist/Nav'
   import ShowArtical from '@/components/aboutlist/ShowArtical'
+
   export default{
     components:{
       ShowArtical,
       NavHeader:Nav,
+      PizzaAdmin,
        },
      data() {
        return {

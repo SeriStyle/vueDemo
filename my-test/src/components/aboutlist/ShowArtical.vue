@@ -36,12 +36,18 @@
       }
     },
     created() {
-      console.log(Math.random());
+    
        this.axios.get('api/data').then((res)=>{
          console.log(res);
         let blogarr=res.data.data.rule;
         this.blogs=blogarr;
+       }).catch((e)=>{
+           alert(e.toString())
+           console.log(e);
        })
+
+       let str='以后很多年以后';
+       console.log(str.match('以后'));
     },
 
   }
