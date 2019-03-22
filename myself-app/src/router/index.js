@@ -41,6 +41,10 @@ export const constantRouterMap = [{
     path: '/operate',
     component: () => import('@/components/admin/OperateTable'),
   },
+  {
+    path:'/summary',
+    component:()=>import('@/components/summary/Summary')
+  }
 ];
 export default new Router({
   mode:'history',

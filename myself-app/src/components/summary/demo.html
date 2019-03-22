@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script type="text/javascript">
+    cityOnClick();
+
+    function cityOnClick() {
+      var cityul = document.getElementsByClassName("c_com"); //根据class名选择所有ul  
+      for (var i = 0; i < cityul.length; i++) {
+        cityul[i].onclick = function (e) {
+          var e = e || window.event;
+          var Target = e.srcElement || e.target; // srcElement这个只是支持firefox(获取触发对象的元素)    
+          alert("点击标签名：" + Target.tagName);
+          if (Target.tagName.toUpperCase() == "A") {
+            alert(Target.innerHTML);
+            alert(Target.name);
+          };
+        }
+      }
+    }
+
+  </script>
+</body>
+
+</html>

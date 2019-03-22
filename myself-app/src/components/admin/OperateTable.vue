@@ -1,7 +1,7 @@
 
 <template>
   <div class="kinds">
-    <div class="form-content">
+    <div class="form-content" >
       <div class="form-title">
         <div class="form-titlespan">
           <span>标题1</span>
@@ -18,7 +18,6 @@
           <div class="form-inputcont" v-for="items in 4" :key="items">
             <el-input  placeholder="请输入内容"></el-input>
           </div>
-
           <div class="form-delt">
             <el-button type="danger" size="small" plain>删除</el-button>
           </div>
@@ -41,6 +40,34 @@ export default {
       input: null,
       ele:'',
       itemArr:[0],
+            tableData: [
+        {
+          date: "2016-05-02",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1518 弄",
+          contact: "110",
+          editactive: true,
+          active: false
+        },
+        {
+          date: "2016-05-04",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1517 弄",
+          contact: "110",
+        },
+        {
+          date: "2016-05-01",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1519 弄",
+          contact: "110",
+        },
+        {
+          date: "2016-05-03",
+          name: "王小虎",
+          address: "上海市普陀区金沙江路 1516 弄",
+          contact: "110",
+        }
+      ],
     };
   },
   methods: {

@@ -8,9 +8,12 @@
         </router-link>
         <router-link to="/vuexdemo">
           <li>VuexDemo</li>
-        </router-link>
-        <router-link to="/operate">
+        </router-link> 
+         <router-link to="/operate">
           <li>Operate</li>
+        </router-link>
+        <router-link  to="/summary">
+          <li>TestZh</li>
         </router-link>
       </ul>
     </nav>
