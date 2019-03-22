@@ -44,6 +44,14 @@ export const constantRouterMap = [{
   {
     path:'/summary',
     component:()=>import('@/components/summary/Summary')
+  },
+  {
+    path:'https://juejin.im/post/5c8f9e595188252db756920c?utm_source=gold_browser_extension',
+    name:'center',
+    meta:{
+      title:'文档',
+      target:'_blank',//打开新窗口
+    },
   }
 ];
 export default new Router({
