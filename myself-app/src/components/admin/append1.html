@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    
+</head>
+<style>
+    .form_wrapper {
+    width: 1200px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    margin: 100px auto;
+    padding: 10px;
+  }
+  .form_wrapper .label-group {
+    width: 90%;
+    margin: 0;
+    overflow: hidden;
+    float: left;
+  }
+  .form_wrapper .label-group .form-group {
+    float: left;
+    width: 50%;
+  }
+  .form_wrapper .operation {
+    width: 10%;
+    float: left;
+  }
+  .form_wrapper .operation button {
+    margin-right: 3px;
+  }
+  .groupinput {
+    width: 800px;
+  }
+  .btnadd, .groupinput, .inputcont {
+    display: inline-block;
+  }
+  .inputcont {
+    width: 200px;
+  }
+  .inputcont input {
+    width: 100%;
+  }
+  .btndel {
+    display: inline-block;
+    margin-left: 20px;
+  }
+  .formtitle {
+    display: inline-block;
+  }
+  .divtitle {
+    width: 855px;
+  }
+  .divtitle span {
+    display: inline-block;
+    border: 1px solid #ccc;
+    width: 200px;
+    text-align: center;
+  }
+  .divtitle .btnadd {
+    margin-left: 2px;
+  }
+</style>
+
+<body>
+    <div id="app">
+        <div class="form-group"></div>
+            <form class="form-horizontal list-inline" id="form1" role="form"></form>
+        </div>
+        <button type="button" class="btn btn-default" onclick="get()">查看数据</button>
+    </div>
+</body>
+<script>
+const layout = [{ label: '名字', prop: 'firstname', placeHolder: '请输入' }, {
+    label: '姓',
+    prop: 'lastname',
+    placeHolder: '请输入'
+}];
+const data = [{ firstname: 'firstname', lastname: '' }];
+
+function CreateForm(opts) {
+    opts = opts || {};
+    this.el = opts.el || '';
+    this.data = opts.data || [];
+    this.layout = opts.layout || [];
+    this.dom = document.querySelector(this.el);
+    this.frag = document.createDocumentFragment();
+    this.formWrapper = document.createElement('div');
+    this.formWrapper.className = 'form_wrapper';
+    this.create();
+}
+
+CreateForm.prototype = {
+    constructor: CreateForm,
+    create: function() {
+        this.formWrapper.innerHTML = '';
+        var divtitle = document.createElement('div');
+            divtitle.className = 'divtitle';
+            this.layout.forEach((value,index,arr)=>{
+                var spantitle=document.createElement('span'); //头部列
+                 spantitle.innerText=value.label;
+                 divtitle.appendChild( spantitle);
+            })
+
+        // --------------生成按钮------------------
+        var operation = document.createElement('div');
+        operation.className = 'btnadd';
+        var add = document.createElement('button');
+        add.type = 'button';
+        add.innerHTML = '新增';
+        operation.appendChild(add);
+        divtitle.appendChild(operation);
+        add.addEventListener('click', () => {
+            this.event['add'].call(this, this.data);
+            console.log(this);
+        });
+        this.formWrapper.appendChild(divtitle);
+
+        this.data.forEach((row, index) => {
+            var formGroup = '';
+            var labelGroup = document.createElement('div');
+            labelGroup.className = 'groupinput';
+            formGroup = document.createElement('div');
+            formGroup.className = 'formgroup';
+            var label = document.createElement('label');
+            this.layout.forEach(lay => {
+                var colSm = document.createElement('div');
+                colSm.className = 'inputcont';
+                var input = document.createElement('input');
+                input.type = 'text';
+                input.className = 'formcontrol';
+                input.value = row[lay.prop] || '';
+                input.setAttribute('placeHolder', lay.placeHolder);
+                input.addEventListener('input', (e) => {
+                    row[lay.prop] = e.target.value;
+                });
+                // 添加节点
+                colSm.appendChild(input);
+                formGroup.appendChild(label);
+                formGroup.appendChild(colSm);
+                labelGroup.appendChild(formGroup);
+                this.formWrapper.appendChild(labelGroup);
+            });
+            // --------------生成按钮------------------
+            // var operation = document.createElement('div');
+            var del = document.createElement('button');
+            del.type = 'button';
+            del.innerHTML = '删除';
+            del.className = 'btndel';
+            del.addEventListener('click', () => {
+                this.event['del'].call(this, this.data, row, index);
+            });
+            this.formWrapper.appendChild(del);
+            this.frag.appendChild(this.formWrapper);
+        });
+        this.dom.appendChild(this.frag);
+    },
+    // 事件
+    event: {
+        add: function(data, row, index) {
+            var obj = {};
+            this.layout.forEach(col => {
+                obj[col.prop] = '';
+                
+            });
+            data.push(obj);
+            this.create();
+        },
+        del: function(data, row, index) {
+            data.splice(index, 1);
+            this.create();
+        }
+    },
+
+};
+
+
+const layout2 = [
+    { label: '开始时间', prop: 'begin', placeHolder: '请输入' },
+    { label: '结束时间', prop: 'end', placeHolder: '请输入' },
+    { label: '学校', prop: 'school', placeHolder: '请输入' },
+    { label: '专业', prop: 'tech', placeHolder: '请输入' }
+];
+const data2 = [
+    { intfo:1,begin: '20180101', end: '20181112', school: '中山大学', tech: '计算机' },
+    { begin: '20180101', end: '20181112', school: '中山大学', tech: '计算机' }
+    ];
+
+var table2 = new CreateForm({ el: '#form1', data: data2, layout: layout2 });
+
+function get() {
+    console.log(data);
+
+    console.log(table2);
+}
+</script>
+
+</html>

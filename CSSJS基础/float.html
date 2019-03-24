@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  .wrap {
+    /* width: 200px;
+  height: 200px;
+  border: 1px solid royalblue; */
+    /* margin: 0 auto;  */
+    /* position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto; */
+    /* display: table-cell;
+  vertical-align: middle; */
+    /* float:left;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto; */
+    /* display: flex; */
+    /*  */
+    /* justify-content: center; 居中 父容器设置才有效
+    align-items: flex-end; */
+
+
+  }
+  .tangle{
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 30px solid transparent;
+    border-top: 30px solid skyblue;
+  }
+</style>
+
+<body>
+  <div class="wrap">
+    <div style="width: 200px;
+      height: 200px;
+      border: 1px solid royalblue;"></div>
+
+  </div>
+
+  <div class="tangle">
+
+  </div>
+
+
+  <script>
+    var fragment=document.createDocumentFragment();
+   let wrap=document.querySelector('.tangle');
+   let content=document.createElement('div');
+   content.className='wrapecontent';
+  // content.style.width='200px';
+  // content.style.height='200px';
+  content.style.cssText="width:200px;height:200px;"
+  content.style.backgroundColor='red';
+  fragment.appendChild(content);
+  wrap.appendChild(fragment);
+   
+
+  localStorage.setItem('myName','helloKetty');
+  let name=localStorage.getItem('myName');
+  localStorage.removeItem('myName');
+  
+  
+  </script>
+</body>
+
+</html>

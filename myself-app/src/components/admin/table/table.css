@@ -1,0 +1,75 @@
+.form_wrapper {
+  width: 1200px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  margin: 100px auto;
+  padding: 10px;
+}
+.form_wrapper .label-group {
+  width: 90%;
+  margin: 0;
+  overflow: hidden;
+  float: left;
+}
+.form_wrapper .label-group .form-group {
+  float: left;
+  width: 50%;
+}
+.form_wrapper .operation {
+  width: 10%;
+  float: left;
+}
+.form_wrapper .operation button {
+  margin: 3px;
+}
+.groupinput {
+  width: 800px;
+}
+.btnadd, .groupinput, .inputcont {
+  display: inline-block;
+}
+.inputcont {
+  width: 200px;
+}
+.inputcont input {
+  /* width: 100%; */
+}
+.btndel {
+  display: inline-block;
+  border: none;
+  color: #FFF;
+  padding: 5px;
+  margin-left: 20px;
+  margin-bottom: 5px;
+  background-color: #F56C6C;
+  border-color: #F56C6C;
+  border-radius: 4px;
+
+}
+.formtitle {
+  display: inline-block;
+}
+.divtitle {
+  width: 855px;
+}
+.divtitle span {
+  display: inline-block;
+  border: 1px solid #ccc;
+  width: 200px;
+  text-align: center;
+}
+.divtitle .btnadd button
+
+{
+  border: none;
+  background: transparent;
+  color: #FFF;
+}
+.divtitle .btnadd {
+  margin-left: 4px;
+ margin-bottom: 5px;
+ color: #FFF;
+ background-color: #409EFF;
+ border-color: #409EFF;
+ border-radius: 4px;
+}

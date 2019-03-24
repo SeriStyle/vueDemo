@@ -46,6 +46,7 @@
     },
     created() {
        this.axios.get('/api/data').then((res)=>{ //请求本地接口
+
         let blogarr=res.data.data.rule;
         console.log(blogarr);
         this.blogs=blogarr;
@@ -53,9 +54,6 @@
            alert(e.toString())
            console.log(e);
        })
-
-       let str='以后很多年以后';
-       console.log(str.match('以后'));
     },
 
   }
