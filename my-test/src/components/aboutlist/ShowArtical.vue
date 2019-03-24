@@ -45,7 +45,7 @@
       }
     },
     created() {
-       this.axios.get('http://localhost:8081/api/data').then((res)=>{ //请求本地接口
+       this.axios.get('/api/data').then((res)=>{ //请求本地接口
         let blogarr=res.data.data.rule;
         console.log(blogarr);
         this.blogs=blogarr;
