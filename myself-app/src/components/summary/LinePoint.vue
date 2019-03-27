@@ -54,6 +54,7 @@ li i:before {
   left: 103px;
   border-radius: 50%;
   transition: all 0.5s ease;
+  
 }
 li i:hover:before {
   background:black;

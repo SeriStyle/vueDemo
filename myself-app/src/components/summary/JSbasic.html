@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    let a = [2, 4, 4, 5, 2, 4, 9, 10];
+    let newarr = a.filter((valu, index, arr) => {
+      return a.indexOf(valu) === index
+    })
+    let b = [];
+    for (let i = 0; i < a.length; i++) {
+      if (a.indexOf(a[i]) === i) {
+        b.push(a[i]);
+      }
+    }
+    console.log(b);
+
+
+    /*
+        function CommonException(message, code) {
+      this.message = message;
+      this.code = code;
+    }
+    try {
+      var exception = new CommonException1('您的代码出错啦', 1);
+      throw exception;
+      alert('这地方的代码将不会执行到');
+    } catch (e) {
+      alert(e);
+      alert(e.code)
+    }
+    */
+
+  </script>
+
+
+</body>
+
+</html>
