@@ -46,6 +46,8 @@ export default {
   directives: {},
   created() {
     this.componentWillMount();
+   // console.log(this.$route.params.name);
+    console.log(this.$route.query.name);
   },
   mounted() {},
   methods: {
@@ -64,7 +66,8 @@ export default {
         document.documentElement.clientHeight ||
         document.body.clientHeight;
       this.img = new window.Image();
-      this.img.src = `https://source.unsplash.com/random/${width}x${height}`;
+     // this.img.src = `https://source.unsplash.com/random/${width}x${height}`;
+      this.img.src = `https://cn.bing.com/th?id=OHR.SakuraFes_ZH-CN1341601988_1920x1080.jpg&rf=NorthMale_1920x1080.jpg&pid=hp/${width}x${height}`;
 
       console.log(this.img.src);
       this.styleObject = {
